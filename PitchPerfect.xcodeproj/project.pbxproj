@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC71381E21D4866600250B0B /* pitch-perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC71381E21D4866600250B0B /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC71382121D4866600250B0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC71382321D4866600250B0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC71382621D4866600250B0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		AC71381F21D4866600250B0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC71381E21D4866600250B0B /* pitch-perfect.app */,
+				AC71381E21D4866600250B0B /* PitchPerfect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC71381D21D4866600250B0B /* pitch-perfect */ = {
+		AC71381D21D4866600250B0B /* PitchPerfect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC71383021D4866700250B0B /* Build configuration list for PBXNativeTarget "pitch-perfect" */;
+			buildConfigurationList = AC71383021D4866700250B0B /* Build configuration list for PBXNativeTarget "PitchPerfect" */;
 			buildPhases = (
 				AC71381A21D4866600250B0B /* Sources */,
 				AC71381B21D4866600250B0B /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = "pitch-perfect";
+			name = PitchPerfect;
 			productName = "pitch-perfect";
-			productReference = AC71381E21D4866600250B0B /* pitch-perfect.app */;
+			productReference = AC71381E21D4866600250B0B /* PitchPerfect.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC71381921D4866600250B0B /* Build configuration list for PBXProject "pitch-perfect" */;
+			buildConfigurationList = AC71381921D4866600250B0B /* Build configuration list for PBXProject "PitchPerfect" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC71381D21D4866600250B0B /* pitch-perfect */,
+				AC71381D21D4866600250B0B /* PitchPerfect */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC71381921D4866600250B0B /* Build configuration list for PBXProject "pitch-perfect" */ = {
+		AC71381921D4866600250B0B /* Build configuration list for PBXProject "PitchPerfect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC71382E21D4866700250B0B /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC71383021D4866700250B0B /* Build configuration list for PBXNativeTarget "pitch-perfect" */ = {
+		AC71383021D4866700250B0B /* Build configuration list for PBXNativeTarget "PitchPerfect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC71383121D4866700250B0B /* Debug */,
