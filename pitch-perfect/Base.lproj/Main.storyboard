@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-6E-zXD">
-                                <rect key="frame" x="155.5" y="504" width="64" height="64"/>
+                                <rect key="frame" x="155.5" y="494" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Re7-6E-zXD" secondAttribute="height" multiplier="1:1" id="OW8-xb-V3M"/>
                                     <constraint firstAttribute="width" constant="64" id="kZE-7B-Ifd"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-ce-IOo">
-                                <rect key="frame" x="136.5" y="463" width="102" height="21"/>
+                                <rect key="frame" x="136.5" y="453" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,13 +46,31 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="78D-ya-8wW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6QX-OF-OAS"/>
+                            <constraint firstAttribute="bottom" secondItem="Re7-6E-zXD" secondAttribute="bottom" constant="10" id="9XC-gH-zCO"/>
                             <constraint firstItem="78D-ya-8wW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOs-qv-Ppp"/>
                             <constraint firstItem="Re7-6E-zXD" firstAttribute="top" secondItem="mqo-ce-IOo" secondAttribute="bottom" constant="20" id="IE4-mg-Czs"/>
                             <constraint firstItem="Re7-6E-zXD" firstAttribute="centerX" secondItem="mqo-ce-IOo" secondAttribute="centerX" id="cVG-9N-9s0"/>
-                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="78D-ya-8wW" secondAttribute="bottom" constant="20" id="eEX-Qu-dMv"/>
+                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="78D-ya-8wW" secondAttribute="bottom" constant="10" id="eEX-Qu-dMv"/>
                             <constraint firstItem="mqo-ce-IOo" firstAttribute="centerX" secondItem="78D-ya-8wW" secondAttribute="centerX" id="nuI-JX-isu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9XC-gH-zCO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="6QX-OF-OAS"/>
+                                <include reference="9XC-gH-zCO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="6QX-OF-OAS"/>
+                                <include reference="9XC-gH-zCO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ne2-8u-hNA"/>
                     <connections>
