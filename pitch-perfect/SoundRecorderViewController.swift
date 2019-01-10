@@ -15,9 +15,8 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
     
-    var audioRecorder: AVAudioRecorder!
-    
-    enum RecordingState { case recording, stopped }
+    private var audioRecorder: AVAudioRecorder!
+    private var soundRecorderViewStateFactory = SoundRecorderViewStateFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,18 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
     }
 
     @IBAction func recordAudio(_ sender: Any) {
-        setView(to: .recording)
-        
+        let viewState = soundRecorderViewStateFactory.make(recordingState: .recording)
+        display(viewState)
+        startRecording()
+    }
+    
+    @IBAction func stopRecording(_ sender: Any) {
+        let viewState = soundRecorderViewStateFactory.make(recordingState: .readyToRecord)
+        display(viewState)
+        stopRecording()
+    }
+    
+    private func startRecording() {
         let dirtPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirtPath, recordingName]
@@ -42,9 +51,7 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
         audioRecorder.record()
     }
     
-    @IBAction func stopRecording(_ sender: Any) {
-        setView(to: .stopped)
-        
+    private func stopRecording() {
         audioRecorder.stop()
         let session = AVAudioSession.sharedInstance()
         try! session.setActive(false)
@@ -64,17 +71,10 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
         }
     }
     
-    private func setView(to recordingState: RecordingState) {
-        switch recordingState {
-        case .recording:
-            recordButton.isEnabled = false
-            stopRecordingButton.isEnabled = true
-            recordingLabel.text = "Recording..."
-        case .stopped:
-            recordButton.isEnabled = true
-            stopRecordingButton.isEnabled = false
-            recordingLabel.text = "Tap to record"
-        }
+    private func display(_ viewState: SoundRecorderViewState) {
+        recordButton.isEnabled = viewState.startRecordingEnabled
+        stopRecordingButton.isEnabled = viewState.stopRecordingEnabled
+        recordingLabel.text = viewState.description
     }
 }
 

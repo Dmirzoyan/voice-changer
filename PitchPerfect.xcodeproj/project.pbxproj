@@ -14,6 +14,8 @@
 		AC71382C21D4866700250B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC71382A21D4866700250B0B /* LaunchScreen.storyboard */; };
 		AC71385421E0CC6600250B0B /* SoundPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */; };
 		ACD0D05621E13C100026443B /* SoundPlayerVIewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */; };
+		ACD0D05821E7E76F0026443B /* SoundRecorderViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */; };
+		ACD0D05A21E7E7900026443B /* SoundRecorderViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AC71382D21D4866700250B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
 		ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoundPlayerVIewController+Audio.swift"; sourceTree = "<group>"; };
+		ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewStateFactory.swift; sourceTree = "<group>"; };
+		ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			children = (
 				AC71382121D4866600250B0B /* AppDelegate.swift */,
 				AC71382321D4866600250B0B /* SoundRecorderViewController.swift */,
+				ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */,
+				ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */,
 				AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */,
 				ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */,
 				AC71382521D4866600250B0B /* Main.storyboard */,
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC71382421D4866600250B0B /* SoundRecorderViewController.swift in Sources */,
+				ACD0D05821E7E76F0026443B /* SoundRecorderViewStateFactory.swift in Sources */,
 				AC71385421E0CC6600250B0B /* SoundPlayerViewController.swift in Sources */,
 				ACD0D05621E13C100026443B /* SoundPlayerVIewController+Audio.swift in Sources */,
+				ACD0D05A21E7E7900026443B /* SoundRecorderViewState.swift in Sources */,
 				AC71382221D4866600250B0B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
