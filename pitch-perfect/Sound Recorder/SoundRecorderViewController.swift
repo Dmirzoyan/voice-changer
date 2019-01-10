@@ -65,9 +65,16 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let url = sender as? URL
+        else { return }
+        
         if segue.identifier == "stopRecording" {
-            let soundPlayerViewController = segue.destination as? SoundPlayerViewController
-            soundPlayerViewController?.recordedAudioUrl = sender as? URL
+            guard let soundPlayerViewController = segue.destination as? SoundPlayerViewController
+            else { return }
+            
+            let soundPlayer = SoundPlayer(recordedAudioUrl: url, display: soundPlayerViewController)
+            soundPlayerViewController.soundPlayer = soundPlayer
         }
     }
     

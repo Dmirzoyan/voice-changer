@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC11D6A521E7FC9100EC4491 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D6A421E7FC9100EC4491 /* Alerts.swift */; };
 		AC71382221D4866600250B0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71382121D4866600250B0B /* AppDelegate.swift */; };
 		AC71382421D4866600250B0B /* SoundRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71382321D4866600250B0B /* SoundRecorderViewController.swift */; };
 		AC71382721D4866600250B0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC71382521D4866600250B0B /* Main.storyboard */; };
 		AC71382921D4866700250B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC71382821D4866700250B0B /* Assets.xcassets */; };
 		AC71382C21D4866700250B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC71382A21D4866700250B0B /* LaunchScreen.storyboard */; };
 		AC71385421E0CC6600250B0B /* SoundPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */; };
-		ACD0D05621E13C100026443B /* SoundPlayerVIewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */; };
 		ACD0D05821E7E76F0026443B /* SoundRecorderViewStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */; };
 		ACD0D05A21E7E7900026443B /* SoundRecorderViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */; };
+		ACD0D05C21E7EC120026443B /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0D05B21E7EC120026443B /* SoundPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC11D6A421E7FC9100EC4491 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		AC71381E21D4866600250B0B /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC71382121D4866600250B0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC71382321D4866600250B0B /* SoundRecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewController.swift; sourceTree = "<group>"; };
@@ -27,9 +29,9 @@
 		AC71382B21D4866700250B0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC71382D21D4866700250B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
-		ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoundPlayerVIewController+Audio.swift"; sourceTree = "<group>"; };
 		ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewStateFactory.swift; sourceTree = "<group>"; };
 		ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewState.swift; sourceTree = "<group>"; };
+		ACD0D05B21E7EC120026443B /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,35 @@
 		AC71382021D4866600250B0B /* pitch-perfect */ = {
 			isa = PBXGroup;
 			children = (
+				ACD0D05E21E7EC380026443B /* Sound Player */,
+				ACD0D05D21E7EC1A0026443B /* Sound Recorder */,
 				AC71382121D4866600250B0B /* AppDelegate.swift */,
-				AC71382321D4866600250B0B /* SoundRecorderViewController.swift */,
-				ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */,
-				ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */,
-				AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */,
-				ACD0D05521E13C100026443B /* SoundPlayerVIewController+Audio.swift */,
 				AC71382521D4866600250B0B /* Main.storyboard */,
 				AC71382821D4866700250B0B /* Assets.xcassets */,
 				AC71382A21D4866700250B0B /* LaunchScreen.storyboard */,
 				AC71382D21D4866700250B0B /* Info.plist */,
 			);
 			path = "pitch-perfect";
+			sourceTree = "<group>";
+		};
+		ACD0D05D21E7EC1A0026443B /* Sound Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */,
+				ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */,
+				AC71382321D4866600250B0B /* SoundRecorderViewController.swift */,
+			);
+			path = "Sound Recorder";
+			sourceTree = "<group>";
+		};
+		ACD0D05E21E7EC380026443B /* Sound Player */ = {
+			isa = PBXGroup;
+			children = (
+				AC71385321E0CC6600250B0B /* SoundPlayerViewController.swift */,
+				ACD0D05B21E7EC120026443B /* SoundPlayer.swift */,
+				AC11D6A421E7FC9100EC4491 /* Alerts.swift */,
+			);
+			path = "Sound Player";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC71382421D4866600250B0B /* SoundRecorderViewController.swift in Sources */,
+				ACD0D05C21E7EC120026443B /* SoundPlayer.swift in Sources */,
 				ACD0D05821E7E76F0026443B /* SoundRecorderViewStateFactory.swift in Sources */,
 				AC71385421E0CC6600250B0B /* SoundPlayerViewController.swift in Sources */,
-				ACD0D05621E13C100026443B /* SoundPlayerVIewController+Audio.swift in Sources */,
 				ACD0D05A21E7E7900026443B /* SoundRecorderViewState.swift in Sources */,
+				AC11D6A521E7FC9100EC4491 /* Alerts.swift in Sources */,
 				AC71382221D4866600250B0B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
