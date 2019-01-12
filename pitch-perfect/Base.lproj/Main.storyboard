@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a sound filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEp-D4-fgc">
-                                <rect key="frame" x="111.33333333333331" y="232" width="152.33333333333337" height="20.333333333333343"/>
+                                <rect key="frame" x="111.33333333333333" y="232" width="152.33333333333337" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                             <constraint firstItem="w2B-MY-Qlt" firstAttribute="centerX" secondItem="Pyv-lh-hXW" secondAttribute="centerX" id="SAV-bF-myH"/>
                             <constraint firstItem="w2B-MY-Qlt" firstAttribute="top" secondItem="hEp-D4-fgc" secondAttribute="bottom" constant="7" id="gqj-02-Hrj"/>
                             <constraint firstItem="n8A-0I-NxO" firstAttribute="bottom" secondItem="MyQ-Wg-DYA" secondAttribute="bottom" constant="50" id="vg8-2V-D0Q"/>
-                            <constraint firstAttribute="bottom" secondItem="MyQ-Wg-DYA" secondAttribute="bottom" constant="7" id="xR1-ZZ-IHt"/>
+                            <constraint firstAttribute="bottom" secondItem="MyQ-Wg-DYA" secondAttribute="bottom" constant="3" id="xR1-ZZ-IHt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n8A-0I-NxO"/>
                         <variation key="default">

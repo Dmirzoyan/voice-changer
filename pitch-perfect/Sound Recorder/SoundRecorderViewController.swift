@@ -48,7 +48,7 @@ final class SoundRecorderViewController: UIViewController {
         navigationBar.shadowImage = UIImage()
     }
 
-    @IBAction func startStopRecordingAudio(_ sender: Any) {
+    @IBAction func startStopRecordingAudio(_ sender: UIButton) {
         var viewState: SoundRecorderViewState
         
         switch recordingState {
@@ -63,6 +63,7 @@ final class SoundRecorderViewController: UIViewController {
         }
         
         display(viewState)
+        sender.pulsate()
     }
     
     private func startRecording() {
