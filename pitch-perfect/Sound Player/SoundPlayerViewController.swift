@@ -29,19 +29,23 @@ final class SoundPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyStyle()
+        soundPlayer.setupAudio()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.backgroundColor = UIColor.AppTheme.darkGreen
+        configureUI(.notPlaying)
+    }
+    
+    private func applyStyle() {
         navigationItem.setHidesBackButton(true, animated:false);
         soundFilterLabel.textColor = UIColor.AppTheme.lightGreen
         recordNewSoundButton.setTitleColor(UIColor.AppTheme.brightGreen, for: .normal)
         
         setupTitle()
         addButtonConstraints()
-        soundPlayer.setupAudio()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureUI(.notPlaying)
     }
     
     private func setupTitle() {

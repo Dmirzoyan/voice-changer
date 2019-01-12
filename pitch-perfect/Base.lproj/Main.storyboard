@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-ce-IOo">
-                                <rect key="frame" x="105" y="118" width="165" height="21"/>
+                                <rect key="frame" x="105" y="523.66666666666663" width="165" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,8 +35,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nx3-Q8-jUU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0iI-gF-iev"/>
-                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2VQ-8t-rpA"/>
                             <constraint firstItem="Nx3-Q8-jUU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4WM-p8-7Pb"/>
+                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="Nx3-Q8-jUU" secondAttribute="bottom" constant="40" id="JIv-i5-lBv"/>
                             <constraint firstItem="mqo-ce-IOo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fJu-pM-ueD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,10 +61,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2B-MY-Qlt">
-                                <rect key="frame" x="20" y="251" width="335" height="310"/>
+                                <rect key="frame" x="37.666666666666657" y="282.33333333333337" width="300" height="277.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2c4-Pn-msY">
-                                        <rect key="frame" x="77.666666666666686" y="0.0" width="180" height="90"/>
+                                        <rect key="frame" x="60" y="0.0" width="180" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlx-N8-OXz" userLabel="Slow Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -83,24 +83,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-zA-PY6">
-                                        <rect key="frame" x="0.0" y="110" width="335" height="90"/>
+                                        <rect key="frame" x="0.0" y="93.666666666666686" width="300" height="90"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q8-R2-Fz7" userLabel="High Pitch Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
                                                 <state key="normal" image="HighPitch"/>
                                                 <connections>
                                                     <action selector="playSoundForButton:" destination="NAy-7W-nsy" eventType="touchUpInside" id="r9r-sQ-sgH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c37-Hk-2ef" userLabel="Stop Button">
-                                                <rect key="frame" x="111.66666666666666" y="0.0" width="111.66666666666666" height="90"/>
+                                                <rect key="frame" x="100" y="0.0" width="100" height="90"/>
                                                 <state key="normal" image="Pause"/>
                                                 <connections>
                                                     <action selector="stopButtonPressed:" destination="NAy-7W-nsy" eventType="touchUpInside" id="d33-a3-rqH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aZ-Tc-tPq" userLabel="Low Pitch Button">
-                                                <rect key="frame" x="223.33333333333334" y="0.0" width="111.66666666666666" height="90"/>
+                                                <rect key="frame" x="200" y="0.0" width="100" height="90"/>
                                                 <state key="normal" image="LowPitch"/>
                                                 <connections>
                                                     <action selector="playSoundForButton:" destination="NAy-7W-nsy" eventType="touchUpInside" id="3He-mf-YLA"/>
@@ -109,7 +109,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvY-fc-Sqf">
-                                        <rect key="frame" x="77.666666666666686" y="220" width="180" height="90"/>
+                                        <rect key="frame" x="60" y="187.33333333333337" width="180" height="90"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFt-JP-ewZ" userLabel="Echo Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -132,21 +132,40 @@
                                 <constraints>
                                     <constraint firstItem="2c4-Pn-msY" firstAttribute="centerX" secondItem="w2B-MY-Qlt" secondAttribute="centerX" id="2Sh-Vn-Q4V"/>
                                     <constraint firstAttribute="bottom" secondItem="HvY-fc-Sqf" secondAttribute="bottom" id="DbI-Ls-rZO"/>
+                                    <constraint firstAttribute="width" constant="300" id="ER7-v9-APx"/>
                                     <constraint firstAttribute="width" secondItem="w2B-MY-Qlt" secondAttribute="height" multiplier="67:62" id="Ssl-Ig-Ghv"/>
                                     <constraint firstItem="w2e-zA-PY6" firstAttribute="leading" secondItem="w2B-MY-Qlt" secondAttribute="leading" id="WRL-wZ-7PS"/>
                                     <constraint firstItem="HvY-fc-Sqf" firstAttribute="centerX" secondItem="w2B-MY-Qlt" secondAttribute="centerX" id="crp-XB-bWI"/>
+                                    <constraint firstAttribute="width" constant="250" id="dXd-ci-Nmy"/>
                                     <constraint firstItem="w2e-zA-PY6" firstAttribute="centerX" secondItem="w2B-MY-Qlt" secondAttribute="centerX" id="eCZ-X1-Wb9"/>
                                     <constraint firstItem="2c4-Pn-msY" firstAttribute="top" secondItem="w2B-MY-Qlt" secondAttribute="top" id="eqr-gv-tdj"/>
+                                    <constraint firstAttribute="width" constant="400" id="fg1-EA-ePl"/>
                                     <constraint firstAttribute="trailing" secondItem="w2e-zA-PY6" secondAttribute="trailing" id="fu3-iU-8Zg"/>
                                     <constraint firstItem="w2e-zA-PY6" firstAttribute="centerY" secondItem="w2B-MY-Qlt" secondAttribute="centerY" id="rAz-qf-H6d"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ER7-v9-APx"/>
+                                        <exclude reference="dXd-ci-Nmy"/>
+                                        <exclude reference="fg1-EA-ePl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="dXd-ci-Nmy"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ER7-v9-APx"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="fg1-EA-ePl"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a sound filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEp-D4-fgc">
-                                <rect key="frame" x="111.33333333333333" y="200.66666666666666" width="152.33333333333337" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyQ-Wg-DYA">
                                 <rect key="frame" x="102.66666666666669" y="698" width="170" height="30"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
@@ -157,19 +176,54 @@
                                     <action selector="recordNewSound:" destination="NAy-7W-nsy" eventType="touchUpInside" id="Zkf-ie-LAG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a sound filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEp-D4-fgc">
+                                <rect key="frame" x="111.33333333333331" y="232" width="152.33333333333337" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MyQ-Wg-DYA" firstAttribute="centerX" secondItem="Pyv-lh-hXW" secondAttribute="centerX" id="1cy-Dk-xCP"/>
-                            <constraint firstItem="w2B-MY-Qlt" firstAttribute="centerY" secondItem="Pyv-lh-hXW" secondAttribute="centerY" id="DZa-Bb-8bL"/>
+                            <constraint firstItem="w2B-MY-Qlt" firstAttribute="centerY" secondItem="Pyv-lh-hXW" secondAttribute="centerY" constant="15" id="DZa-Bb-8bL"/>
                             <constraint firstItem="w2B-MY-Qlt" firstAttribute="top" secondItem="hEp-D4-fgc" secondAttribute="bottom" constant="30" id="LLk-Uv-yAS"/>
                             <constraint firstItem="hEp-D4-fgc" firstAttribute="centerX" secondItem="Pyv-lh-hXW" secondAttribute="centerX" id="PzV-yO-r53"/>
                             <constraint firstItem="w2B-MY-Qlt" firstAttribute="centerX" secondItem="Pyv-lh-hXW" secondAttribute="centerX" id="SAV-bF-myH"/>
-                            <constraint firstItem="w2B-MY-Qlt" firstAttribute="leading" secondItem="n8A-0I-NxO" secondAttribute="leading" constant="20" id="UY5-gp-KEW"/>
-                            <constraint firstItem="n8A-0I-NxO" firstAttribute="trailing" secondItem="w2B-MY-Qlt" secondAttribute="trailing" constant="20" id="kmq-LB-QdB"/>
+                            <constraint firstItem="w2B-MY-Qlt" firstAttribute="top" secondItem="hEp-D4-fgc" secondAttribute="bottom" constant="7" id="gqj-02-Hrj"/>
                             <constraint firstItem="n8A-0I-NxO" firstAttribute="bottom" secondItem="MyQ-Wg-DYA" secondAttribute="bottom" constant="50" id="vg8-2V-D0Q"/>
+                            <constraint firstAttribute="bottom" secondItem="MyQ-Wg-DYA" secondAttribute="bottom" constant="7" id="xR1-ZZ-IHt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n8A-0I-NxO"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vg8-2V-D0Q"/>
+                                <exclude reference="gqj-02-Hrj"/>
+                                <exclude reference="xR1-ZZ-IHt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="LLk-Uv-yAS"/>
+                                <include reference="gqj-02-Hrj"/>
+                                <include reference="xR1-ZZ-IHt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="xR1-ZZ-IHt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="vg8-2V-D0Q"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="vg8-2V-D0Q"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="chipmunkButton" destination="8Q8-R2-Fz7" id="Pfp-IL-eXR"/>
