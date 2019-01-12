@@ -39,7 +39,7 @@ final class SoundRecorderViewController: UIViewController {
     
     private func applyNavigationBarStyle() {
         guard let navigationBar = navigationController?.navigationBar
-            else { return }
+        else { return }
         
         navigationBar.barStyle = .blackTranslucent
         navigationBar.barTintColor = UIColor.AppTheme.darkGreen
@@ -107,7 +107,7 @@ extension SoundRecorderViewController: AVAudioRecorderDelegate {
         
         if segue.identifier == "stopRecording" {
             guard let soundPlayerViewController = segue.destination as? SoundPlayerViewController
-                else { return }
+            else { return }
             
             let soundPlayer = SoundPlayer(recordedAudioUrl: url, display: soundPlayerViewController)
             soundPlayerViewController.soundPlayer = soundPlayer
