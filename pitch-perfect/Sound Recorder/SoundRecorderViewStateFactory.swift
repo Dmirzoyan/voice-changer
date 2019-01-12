@@ -18,9 +18,15 @@ final class SoundRecorderViewStateFactory: SoundRecorderViewStateProducing {
     func make(recordingState: RecordingState) -> SoundRecorderViewState {
         switch recordingState {
         case .idle:
-            return SoundRecorderViewState(buttonIcon: UIImage(named: "recordButton"), description: "Tap to start recording")
+            return SoundRecorderViewState(
+                buttonIcon: UIImage(named: "recordButton"),
+                description: "Tap to start recording"
+            )
         case .recording:
-           return SoundRecorderViewState(buttonIcon: UIImage(named: "Stop"), description: "Tap to stop recording")
+            return SoundRecorderViewState(
+                buttonIcon: UIImage(named: "Stop"),
+                description: "Tap to stop recording"
+            )
         }
     }
 }
