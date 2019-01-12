@@ -75,10 +75,10 @@ extension SoundPlayerViewController: SoundPlayerDisplaying {
     func configureUI(_ playState: PlayingState) {
         switch(playState) {
         case .playing:
-            setPlayButtonsEnabled(false)
+            setPlayButtons(enabled: false)
             stopButton.isEnabled = true
         case .notPlaying:
-            setPlayButtonsEnabled(true)
+            setPlayButtons(enabled: true)
             stopButton.isEnabled = false
         }
     }
@@ -89,7 +89,7 @@ extension SoundPlayerViewController: SoundPlayerDisplaying {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func setPlayButtonsEnabled(_ enabled: Bool) {
+    private func setPlayButtons(enabled: Bool) {
         snailButton.isEnabled = enabled
         chipmunkButton.isEnabled = enabled
         rabbitButton.isEnabled = enabled

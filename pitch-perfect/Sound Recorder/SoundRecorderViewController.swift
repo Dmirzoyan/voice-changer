@@ -9,14 +9,14 @@
 import UIKit
 import AVFoundation
 
-final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelegate {
+final class SoundRecorderViewController: UIViewController {
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
     
     private var audioRecorder: AVAudioRecorder!
-    private var soundRecorderViewStateFactory = SoundRecorderViewStateFactory()
+    private var soundRecorderViewStateFactory: SoundRecorderViewStateProducing = SoundRecorderViewStateFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,14 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
         try! session.setActive(false)
     }
     
+    private func display(_ viewState: SoundRecorderViewState) {
+        recordButton.isEnabled = viewState.startRecordingEnabled
+        stopRecordingButton.isEnabled = viewState.stopRecordingEnabled
+        recordingLabel.text = viewState.description
+    }
+}
+
+extension SoundRecorderViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         guard flag == true
         else { return }
@@ -65,23 +73,16 @@ final class SoundRecorderViewController: UIViewController, AVAudioRecorderDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let url = sender as? URL
         else { return }
         
         if segue.identifier == "stopRecording" {
             guard let soundPlayerViewController = segue.destination as? SoundPlayerViewController
-            else { return }
+                else { return }
             
             let soundPlayer = SoundPlayer(recordedAudioUrl: url, display: soundPlayerViewController)
             soundPlayerViewController.soundPlayer = soundPlayer
         }
-    }
-    
-    private func display(_ viewState: SoundRecorderViewState) {
-        recordButton.isEnabled = viewState.startRecordingEnabled
-        stopRecordingButton.isEnabled = viewState.stopRecordingEnabled
-        recordingLabel.text = viewState.description
     }
 }
 

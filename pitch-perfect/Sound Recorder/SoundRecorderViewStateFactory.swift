@@ -8,9 +8,13 @@
 
 import Foundation
 
-final class SoundRecorderViewStateFactory {
+protocol SoundRecorderViewStateProducing {
+    func make(recordingState: RecordingState) -> SoundRecorderViewState
+}
+
+final class SoundRecorderViewStateFactory: SoundRecorderViewStateProducing {
     
-    func make(recordingState: RecordingState) -> SoundRecorderViewState {        
+    func make(recordingState: RecordingState) -> SoundRecorderViewState {
         switch recordingState {
         case .readyToRecord:
             return SoundRecorderViewState(
