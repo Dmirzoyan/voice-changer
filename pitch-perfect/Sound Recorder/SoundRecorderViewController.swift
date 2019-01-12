@@ -51,18 +51,20 @@ final class SoundRecorderViewController: UIViewController {
     }
 
     @IBAction func startStopRecordingAudio(_ sender: Any) {
+        var viewState: SoundRecorderViewState
+        
         switch recordingState {
         case .idle:
             startRecording()
+            viewState = soundRecorderViewStateFactory.make(recordingState: .recording)
             recordingState = .recording
-            startStopRecordingButton.setImage(UIImage(named: "Stop"), for: .normal)
-            recordingLabel.text = "Tap to stop recording"
         case .recording:
             stopRecording()
             recordingState = .idle
-            startStopRecordingButton.setImage(UIImage(named: "recordButton"), for: .normal)
-            recordingLabel.text = "Tap to start recording"
+            viewState = soundRecorderViewStateFactory.make(recordingState: .idle)
         }
+        
+        display(viewState)
     }
     
     private func startRecording() {
@@ -87,11 +89,10 @@ final class SoundRecorderViewController: UIViewController {
         try! session.setActive(false)
     }
     
-//    private func display(_ viewState: SoundRecorderViewState) {
-//        recordButton.isEnabled = viewState.startRecordingEnabled
-//        stopRecordingButton.isEnabled = viewState.stopRecordingEnabled
-//        recordingLabel.text = viewState.description
-//    }
+    private func display(_ viewState: SoundRecorderViewState) {
+        startStopRecordingButton.setImage(viewState.buttonIcon, for: .normal)
+        recordingLabel.text = viewState.description
+    }
 }
 
 extension SoundRecorderViewController: AVAudioRecorderDelegate {

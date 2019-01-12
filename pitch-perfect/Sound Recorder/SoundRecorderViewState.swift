@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 enum RecordingState { case idle, recording }
 
 struct SoundRecorderViewState {
-    let startRecordingEnabled: Bool
-    let stopRecordingEnabled: Bool
+    let buttonIcon: UIImage?
     let description: String
 }

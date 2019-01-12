@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 protocol SoundRecorderViewStateProducing {
     func make(recordingState: RecordingState) -> SoundRecorderViewState
@@ -17,17 +18,9 @@ final class SoundRecorderViewStateFactory: SoundRecorderViewStateProducing {
     func make(recordingState: RecordingState) -> SoundRecorderViewState {
         switch recordingState {
         case .idle:
-            return SoundRecorderViewState(
-                startRecordingEnabled: true,
-                stopRecordingEnabled: false,
-                description: "Tap to record"
-            )
+            return SoundRecorderViewState(buttonIcon: UIImage(named: "recordButton"), description: "Tap to start recording")
         case .recording:
-            return SoundRecorderViewState(
-                startRecordingEnabled: false,
-                stopRecordingEnabled: true,
-                description: "Recording..."
-            )
+           return SoundRecorderViewState(buttonIcon: UIImage(named: "Stop"), description: "Tap to stop recording")
         }
     }
 }
