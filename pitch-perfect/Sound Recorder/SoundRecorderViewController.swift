@@ -17,8 +17,6 @@ final class SoundRecorderViewController: UIViewController {
     private let soundRecorderViewStateFactory: SoundRecorderViewStateProducing = SoundRecorderViewStateFactory()
     private var audioRecorder: AVAudioRecorder!
     private var recordingState: RecordingState = .idle
-    private let backgroundColor = UIColor(red: 0.128, green: 0.175, blue: 0.191, alpha: 1)
-    private let textColor = UIColor(red: 0.428, green: 0.475, blue: 0.491, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +24,8 @@ final class SoundRecorderViewController: UIViewController {
     }
     
     private func applyStyling() {
-        view.backgroundColor = backgroundColor
-        recordingLabel.textColor = textColor
+        view.backgroundColor = UIColor.AppTheme.darkGreen
+        recordingLabel.textColor = UIColor.AppTheme.lightGreen
         
         setupTitle()
         applyNavigationBarStyle()
@@ -44,7 +42,7 @@ final class SoundRecorderViewController: UIViewController {
             else { return }
         
         navigationBar.barStyle = .blackTranslucent
-        navigationBar.barTintColor = backgroundColor
+        navigationBar.barTintColor = UIColor.AppTheme.darkGreen
         navigationBar.isTranslucent = false
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
