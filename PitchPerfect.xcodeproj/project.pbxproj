@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC11D6AA21EA049500EC4491 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				AC11D6A821EA03FD00EC4491 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		AC71381521D4866600250B0B = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +74,7 @@
 		AC71382021D4866600250B0B /* pitch-perfect */ = {
 			isa = PBXGroup;
 			children = (
+				AC11D6AA21EA049500EC4491 /* Theme */,
 				ACD0D05E21E7EC380026443B /* Sound Player */,
 				ACD0D05D21E7EC1A0026443B /* Sound Recorder */,
 				AC71382121D4866600250B0B /* AppDelegate.swift */,
@@ -83,7 +92,6 @@
 				ACD0D05921E7E7900026443B /* SoundRecorderViewState.swift */,
 				ACD0D05721E7E76F0026443B /* SoundRecorderViewStateFactory.swift */,
 				AC71382321D4866600250B0B /* SoundRecorderViewController.swift */,
-				AC11D6A821EA03FD00EC4491 /* AppTheme.swift */,
 			);
 			path = "Sound Recorder";
 			sourceTree = "<group>";
