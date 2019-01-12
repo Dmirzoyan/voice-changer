@@ -18,26 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78D-ya-8wW">
-                                <rect key="frame" x="110" y="355.66666666666669" width="155" height="155"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx3-Q8-jUU" userLabel="Start Stop Recording Button">
+                                <rect key="frame" x="110" y="328.66666666666669" width="155" height="155"/>
                                 <state key="normal" image="recordButton"/>
                                 <connections>
-                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LDK-hi-U1n"/>
+                                    <action selector="startStopRecordingAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3L-Dz-zMz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Re7-6E-zXD">
-                                <rect key="frame" x="155.66666666666666" y="561.66666666666663" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Re7-6E-zXD" secondAttribute="height" multiplier="1:1" id="OW8-xb-V3M"/>
-                                    <constraint firstAttribute="width" constant="64" id="kZE-7B-Ifd"/>
-                                </constraints>
-                                <state key="normal" image="Stop"/>
-                                <connections>
-                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D0e-s7-HrW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-ce-IOo">
-                                <rect key="frame" x="136.66666666666666" y="520.66666666666663" width="102" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-ce-IOo">
+                                <rect key="frame" x="105" y="118" width="165" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,38 +34,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="78D-ya-8wW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6QX-OF-OAS"/>
-                            <constraint firstAttribute="bottom" secondItem="Re7-6E-zXD" secondAttribute="bottom" constant="10" id="9XC-gH-zCO"/>
-                            <constraint firstItem="78D-ya-8wW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOs-qv-Ppp"/>
-                            <constraint firstItem="Re7-6E-zXD" firstAttribute="top" secondItem="mqo-ce-IOo" secondAttribute="bottom" constant="20" id="IE4-mg-Czs"/>
-                            <constraint firstItem="Re7-6E-zXD" firstAttribute="centerX" secondItem="mqo-ce-IOo" secondAttribute="centerX" id="cVG-9N-9s0"/>
-                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="78D-ya-8wW" secondAttribute="bottom" constant="10" id="eEX-Qu-dMv"/>
-                            <constraint firstItem="mqo-ce-IOo" firstAttribute="centerX" secondItem="78D-ya-8wW" secondAttribute="centerX" id="nuI-JX-isu"/>
+                            <constraint firstItem="Nx3-Q8-jUU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0iI-gF-iev"/>
+                            <constraint firstItem="mqo-ce-IOo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2VQ-8t-rpA"/>
+                            <constraint firstItem="Nx3-Q8-jUU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4WM-p8-7Pb"/>
+                            <constraint firstItem="mqo-ce-IOo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fJu-pM-ueD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9XC-gH-zCO"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="constraints">
-                                <exclude reference="6QX-OF-OAS"/>
-                                <include reference="9XC-gH-zCO"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=regular">
-                            <mask key="constraints">
-                                <exclude reference="6QX-OF-OAS"/>
-                                <include reference="9XC-gH-zCO"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ne2-8u-hNA"/>
                     <connections>
-                        <outlet property="recordButton" destination="78D-ya-8wW" id="ym0-bV-Bfu"/>
                         <outlet property="recordingLabel" destination="mqo-ce-IOo" id="FnO-zm-j7o"/>
-                        <outlet property="stopRecordingButton" destination="Re7-6E-zXD" id="6V0-9u-4Ci"/>
+                        <outlet property="startStopRecordingButton" destination="Nx3-Q8-jUU" id="2L6-ps-aKa"/>
                         <segue destination="NAy-7W-nsy" kind="show" identifier="stopRecording" id="ttn-5K-RvG"/>
                     </connections>
                 </viewController>

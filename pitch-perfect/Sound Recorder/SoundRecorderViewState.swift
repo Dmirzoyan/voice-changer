@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RecordingState { case readyToRecord, recording }
+enum RecordingState { case idle, recording }
 
 struct SoundRecorderViewState {
     let startRecordingEnabled: Bool

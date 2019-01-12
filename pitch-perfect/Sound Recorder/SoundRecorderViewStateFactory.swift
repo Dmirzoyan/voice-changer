@@ -16,7 +16,7 @@ final class SoundRecorderViewStateFactory: SoundRecorderViewStateProducing {
     
     func make(recordingState: RecordingState) -> SoundRecorderViewState {
         switch recordingState {
-        case .readyToRecord:
+        case .idle:
             return SoundRecorderViewState(
                 startRecordingEnabled: true,
                 stopRecordingEnabled: false,
