@@ -36,7 +36,6 @@ final class SoundPlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = UIColor.AppTheme.darkGreen
-        configureUI(.notPlaying)
     }
     
     private func applyStyle() {
@@ -94,18 +93,12 @@ final class SoundPlayerViewController: UIViewController {
 
 extension SoundPlayerViewController: SoundPlayerDisplaying {
     
-    func configureUI(_ playState: PlayingState) {
-        switch(playState) {
-        case .playing:
-            setPlayButtons(enabled: false)
-            stopButton.isEnabled = true
-        case .notPlaying:
-            setPlayButtons(enabled: true)
-            stopButton.isEnabled = false
-        }
+    func display(_ viewState: SoundPlayerViewState) {
+        setPlayButtons(enabled: viewState.playButtonsEnabled)
+        stopButton.isEnabled = viewState.stopButtonEnabled
     }
     
-    func showAlert(_ title: String, message: String) {
+    func displayAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
