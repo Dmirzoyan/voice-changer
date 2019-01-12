@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC11D6A521E7FC9100EC4491 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D6A421E7FC9100EC4491 /* Alerts.swift */; };
+		AC11D6A921EA03FD00EC4491 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11D6A821EA03FD00EC4491 /* AppTheme.swift */; };
 		AC71382221D4866600250B0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71382121D4866600250B0B /* AppDelegate.swift */; };
 		AC71382421D4866600250B0B /* SoundRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC71382321D4866600250B0B /* SoundRecorderViewController.swift */; };
 		AC71382721D4866600250B0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC71382521D4866600250B0B /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		AC11D6A421E7FC9100EC4491 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		AC11D6A821EA03FD00EC4491 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		AC71381E21D4866600250B0B /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC71382121D4866600250B0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC71382321D4866600250B0B /* SoundRecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundRecorderViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC11D6AA21EA049500EC4491 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				AC11D6A821EA03FD00EC4491 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		AC71381521D4866600250B0B = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		AC71382021D4866600250B0B /* pitch-perfect */ = {
 			isa = PBXGroup;
 			children = (
+				AC11D6AA21EA049500EC4491 /* Theme */,
 				ACD0D05E21E7EC380026443B /* Sound Player */,
 				ACD0D05D21E7EC1A0026443B /* Sound Recorder */,
 				AC71382121D4866600250B0B /* AppDelegate.swift */,
@@ -171,6 +182,7 @@
 				ACD0D05821E7E76F0026443B /* SoundRecorderViewStateFactory.swift in Sources */,
 				AC71385421E0CC6600250B0B /* SoundPlayerViewController.swift in Sources */,
 				ACD0D05A21E7E7900026443B /* SoundRecorderViewState.swift in Sources */,
+				AC11D6A921EA03FD00EC4491 /* AppTheme.swift in Sources */,
 				AC11D6A521E7FC9100EC4491 /* Alerts.swift in Sources */,
 				AC71382221D4866600250B0B /* AppDelegate.swift in Sources */,
 			);

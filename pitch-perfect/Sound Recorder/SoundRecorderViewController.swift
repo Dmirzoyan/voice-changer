@@ -12,27 +12,57 @@ import AVFoundation
 final class SoundRecorderViewController: UIViewController {
 
     @IBOutlet weak var recordingLabel: UILabel!
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var stopRecordingButton: UIButton!
+    @IBOutlet weak var startStopRecordingButton: UIButton!
     
+    private let soundRecorderViewStateFactory: SoundRecorderViewStateProducing = SoundRecorderViewStateFactory()
     private var audioRecorder: AVAudioRecorder!
-    private var soundRecorderViewStateFactory: SoundRecorderViewStateProducing = SoundRecorderViewStateFactory()
+    private var recordingState: RecordingState = .idle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stopRecordingButton.isEnabled = false
-    }
-
-    @IBAction func recordAudio(_ sender: Any) {
-        let viewState = soundRecorderViewStateFactory.make(recordingState: .recording)
-        display(viewState)
-        startRecording()
+        applyStyling()
     }
     
-    @IBAction func stopRecording(_ sender: Any) {
-        let viewState = soundRecorderViewStateFactory.make(recordingState: .readyToRecord)
+    private func applyStyling() {
+        view.backgroundColor = UIColor.AppTheme.darkGreen
+        recordingLabel.textColor = UIColor.AppTheme.lightGreen
+        
+        setupTitle()
+        applyNavigationBarStyle()
+    }
+    
+    private func setupTitle() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        title = "Pitch Perfect"
+    }
+    
+    private func applyNavigationBarStyle() {
+        guard let navigationBar = navigationController?.navigationBar
+        else { return }
+        
+        navigationBar.barStyle = .blackTranslucent
+        navigationBar.barTintColor = UIColor.AppTheme.darkGreen
+        navigationBar.isTranslucent = false
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+    }
+
+    @IBAction func startStopRecordingAudio(_ sender: Any) {
+        var viewState: SoundRecorderViewState
+        
+        switch recordingState {
+        case .idle:
+            startRecording()
+            viewState = soundRecorderViewStateFactory.make(recordingState: .recording)
+            recordingState = .recording
+        case .recording:
+            stopRecording()
+            recordingState = .idle
+            viewState = soundRecorderViewStateFactory.make(recordingState: .idle)
+        }
+        
         display(viewState)
-        stopRecording()
     }
     
     private func startRecording() {
@@ -58,8 +88,7 @@ final class SoundRecorderViewController: UIViewController {
     }
     
     private func display(_ viewState: SoundRecorderViewState) {
-        recordButton.isEnabled = viewState.startRecordingEnabled
-        stopRecordingButton.isEnabled = viewState.stopRecordingEnabled
+        startStopRecordingButton.setImage(viewState.buttonIcon, for: .normal)
         recordingLabel.text = viewState.description
     }
 }
@@ -78,7 +107,7 @@ extension SoundRecorderViewController: AVAudioRecorderDelegate {
         
         if segue.identifier == "stopRecording" {
             guard let soundPlayerViewController = segue.destination as? SoundPlayerViewController
-                else { return }
+            else { return }
             
             let soundPlayer = SoundPlayer(recordedAudioUrl: url, display: soundPlayerViewController)
             soundPlayerViewController.soundPlayer = soundPlayer

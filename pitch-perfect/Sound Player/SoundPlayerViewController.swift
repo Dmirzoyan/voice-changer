@@ -18,11 +18,40 @@ final class SoundPlayerViewController: UIViewController {
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var soundFilterLabel: UILabel!
+    @IBOutlet weak var recordNewSoundButton: UIButton!
     
     var soundPlayer: SoundPlayer!
     
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        applyStyle()
+        soundPlayer.setupAudio()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UIColor.AppTheme.darkGreen
+        configureUI(.notPlaying)
+    }
+    
+    private func applyStyle() {
+        navigationItem.setHidesBackButton(true, animated:false);
+        soundFilterLabel.textColor = UIColor.AppTheme.lightGreen
+        recordNewSoundButton.setTitleColor(UIColor.AppTheme.brightGreen, for: .normal)
+        
+        setupTitle()
+        addButtonConstraints()
+    }
+    
+    private func setupTitle() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        title = "Pitch Perfect"
     }
     
     @IBAction func playSoundForButton(_ sender: UIButton) {
@@ -48,16 +77,9 @@ final class SoundPlayerViewController: UIViewController {
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         soundPlayer.stopAudio()
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addButtonConstraints()
-        soundPlayer.setupAudio()
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureUI(.notPlaying)
+    @IBAction func recordNewSound(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     private func addButtonConstraints() {
