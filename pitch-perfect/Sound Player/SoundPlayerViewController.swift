@@ -78,6 +78,7 @@ final class SoundPlayerViewController: UIViewController {
     }
     
     @IBAction func recordNewSound(_ sender: Any) {
+        soundPlayer.stopAudio()
         navigationController?.popViewController(animated: true)
     }
     

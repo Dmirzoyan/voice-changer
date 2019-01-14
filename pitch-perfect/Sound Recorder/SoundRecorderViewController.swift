@@ -9,18 +9,29 @@
 import UIKit
 import AVFoundation
 
+protocol SoundRecorderInteracting {
+    func startStopRecording()
+}
+
 final class SoundRecorderViewController: UIViewController {
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var startStopRecordingButton: UIButton!
     
-    private let soundRecorderViewStateFactory: SoundRecorderViewStateProducing = SoundRecorderViewStateFactory()
-    private var audioRecorder: AVAudioRecorder!
-    private var recordingState: RecordingState = .idle
+    private var interactor: SoundRecorderInteracting!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         applyStyling()
+        
+        interactor = SoundRecorderInteractor(
+            soundRecorder: SoundRecorder(),
+            router: SoundRecorderRouter(display: self),
+            presenter: SoundRecorderPresenter(
+                display: self,
+                viewStateFactory: SoundRecorderViewStateFactory()
+            )
+        )
     }
     
     private func applyStyling() {
@@ -49,70 +60,15 @@ final class SoundRecorderViewController: UIViewController {
     }
 
     @IBAction func startStopRecordingAudio(_ sender: UIButton) {
-        var viewState: SoundRecorderViewState
-        
-        switch recordingState {
-        case .idle:
-            startRecording()
-            viewState = soundRecorderViewStateFactory.make(recordingState: .recording)
-            recordingState = .recording
-        case .recording:
-            stopRecording()
-            recordingState = .idle
-            viewState = soundRecorderViewStateFactory.make(recordingState: .idle)
-        }
-        
-        display(viewState)
+        interactor.startStopRecording()
         sender.pulsate()
     }
+}
+
+extension SoundRecorderViewController: SoundRecorderDisplaying {
     
-    private func startRecording() {
-        let dirtPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let recordingName = "recordedVoice.wav"
-        let pathArray = [dirtPath, recordingName]
-        let filePath = URL(string: pathArray.joined(separator: "/"))
-        
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
-        
-        try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
-        audioRecorder.delegate = self
-        audioRecorder.isMeteringEnabled = true
-        audioRecorder.prepareToRecord()
-        audioRecorder.record()
-    }
-    
-    private func stopRecording() {
-        audioRecorder.stop()
-        let session = AVAudioSession.sharedInstance()
-        try! session.setActive(false)
-    }
-    
-    private func display(_ viewState: SoundRecorderViewState) {
+    func display(_ viewState: SoundRecorderViewState) {
         startStopRecordingButton.setImage(viewState.buttonIcon, for: .normal)
         recordingLabel.text = viewState.description
     }
 }
-
-extension SoundRecorderViewController: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        guard flag == true
-        else { return }
-        
-        performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let url = sender as? URL
-        else { return }
-        
-        if segue.identifier == "stopRecording" {
-            guard let soundPlayerViewController = segue.destination as? SoundPlayerViewController
-            else { return }
-            
-            let soundPlayer = SoundPlayer(recordedAudioUrl: url, display: soundPlayerViewController)
-            soundPlayerViewController.soundPlayer = soundPlayer
-        }
-    }
-}
-

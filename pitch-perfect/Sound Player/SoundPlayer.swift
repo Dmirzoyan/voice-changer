@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-protocol SoundPlayerDisplaying {
+protocol SoundPlayerDisplaying: class {
     func display(_ viewState: SoundPlayerViewState)
     func displayAlert(_ title: String, message: String)
 }
@@ -20,7 +20,7 @@ final class SoundPlayer {
     private let audioEngine: AVAudioEngine
     private let audioPlayerNode: AVAudioPlayerNode
     private let viewStateFactory: SoundPlayerViewStateProducing
-    private let display: SoundPlayerDisplaying
+    private weak var display: SoundPlayerDisplaying?
     private var stopTimer: Timer?
     private var audioFile: AVAudioFile?
     
@@ -41,13 +41,13 @@ final class SoundPlayer {
     // MARK: Audio Functions
     
     func setupAudio() {
-        display.display(viewStateFactory.make(playingState: .idle))
+        display?.display(viewStateFactory.make(playingState: .idle))
         
         // initialize (recording) audio file
         do {
             audioFile = try AVAudioFile(forReading: recordedAudioUrl as URL)
         } catch {
-            display.displayAlert(Alerts.AudioFileError, message: String(describing: error))
+            display?.displayAlert(Alerts.AudioFileError, message: String(describing: error))
         }
     }
     
@@ -132,13 +132,13 @@ final class SoundPlayer {
         do {
             try audioEngine.start()
         } catch {
-            display.displayAlert(Alerts.AudioEngineError, message: String(describing: error))
+            display?.displayAlert(Alerts.AudioEngineError, message: String(describing: error))
             return
         }
         
         // play the recording!
         audioPlayerNode.play()
-        display.display(viewStateFactory.make(playingState: .playing))
+        display?.display(viewStateFactory.make(playingState: .playing))
     }
     
     @objc func stopAudio() {
@@ -148,7 +148,7 @@ final class SoundPlayer {
             stopTimer.invalidate()
         }
         
-        display.display(viewStateFactory.make(playingState: .idle))
+        display?.display(viewStateFactory.make(playingState: .idle))
         
         audioEngine.stop()
         audioEngine.reset()
